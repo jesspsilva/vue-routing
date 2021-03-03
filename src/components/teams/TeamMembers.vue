@@ -31,6 +31,9 @@ export default {
   methods: {
     loadTemMembers(teamId) {
       const selectedTeam = this.teams.find(team => team.id === teamId);
+      if(!selectedTeam) {
+        return this.$router.push('/teams');
+      }
       const members = selectedTeam.members;
       const selectedMembers = [];
       for (const member of members) {
